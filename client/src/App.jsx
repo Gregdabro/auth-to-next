@@ -1,13 +1,12 @@
 import React, {FC, useContext, useEffect, useState} from 'react';
 import LoginForm from "./components/LoginForm";
-import {Context} from "./index";
+import {Context} from "./main";
 import {observer} from "mobx-react-lite";
-import {IUser} from "./models/IUser";
 import UserService from "./services/UserService";
 
-const App: FC = () => {
+const App = () => {
     const {store} = useContext(Context);
-    const [users, setUsers] = useState<IUser[]>([]);
+    const [users, setUsers] = useState([]);
 
     useEffect(() => {
         if (localStorage.getItem('token')) {
